@@ -1,0 +1,36 @@
+@server = http://localhost
+@port = 3000
+@api_path = api
+@api_version = 3
+@url = {{server}}:{{port}}/{{api_path}}/v{{api_version}}
+
+###############################################
+
+// Test: Get all customers
+GET {{url}}/customers
+
+###############################################
+
+// Test: Get customer with id
+GET {{url}}/customers/6957db741938639a870da70b
+
+
+###############################################
+
+// Test: Get all customers of employee
+GET {{url}}/customers/employee/6957dce91938639a870da719
+
+###############################################
+
+// Test: Get all customers of employee
+POST {{url}}/customers/addCustomer HTTP/1.1
+content-type: application/json
+
+{
+   "employeeId":"6957e0601938639a870da738",
+   "customerFirstName": "test 5 ",
+   "customerLastName": "ss",
+   "customerEmail": "sssawwaasssaa@test5.com",
+   "customerGender": "Man"
+}
+

@@ -1,0 +1,20 @@
+@server = http://localhost
+@port = 3000
+@api_path = api
+@api_version = 3
+@url = {{server}}:{{port}}/{{api_path}}/v{{api_version}}
+
+###############################################
+
+// Test: Get all notes
+GET {{url}}/notes/6957db741938639a870da70b
+
+###############################################
+POST {{url}}/notes/addNote HTTP/1.1
+content-type: application/json
+
+{
+    "note":"Riktig stjärna",
+    "reminder": true,
+    "customerId":"6957db741938639a870da70b"
+}

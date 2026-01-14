@@ -1,0 +1,22 @@
+@server = http://localhost
+@port = 3000
+@api_path = api
+@api_version = 3
+@url = {{server}}:{{port}}/{{api_path}}/v{{api_version}}
+
+###############################################
+
+// Test: Get all treatments
+GET {{url}}/treatments
+
+###############################################
+
+// Test: Add treatment
+POST {{url}}/treatments/add  HTTP/1.1
+content-type: application/json
+
+{
+   "type": "klippning kort herr",
+   "price": "500",
+   "time": "30"
+}

@@ -1,0 +1,40 @@
+@server = http://localhost
+@port = 3000
+@api_path = api
+@api_version = 3
+@url = {{server}}:{{port}}/{{api_path}}/v{{api_version}}
+
+###############################################
+
+// Test: Get all bookings of employee
+GET {{url}}/bookings/6957dce91938639a870da719
+
+###############################################
+
+// Test: Add booking
+POST {{url}}/bookings/addBooking HTTP/1.1
+content-type: application/json
+
+{
+    "bookingMade":"2026-01-06T12:30:00.000+00:00",
+    "treatment":"6957df161938639a870da727",
+    "bookingEnd":"2026-01-08T13:30:00.000+00:00",
+    "bookingStart":"2026-01-08T13:00:00.000+00:00",
+    "customer":"6957db741938639a870da70b",
+    "employee": "6957dce91938639a870da719"
+}
+
+###############################################
+
+// Test: Delete booking
+DELETE  {{url}}/bookings/69650461a6096406d63a694c
+
+###############################################
+
+// Test: all get bookings of customer
+GET  {{url}}/bookings/customer/6957db741938639a870da70b HTTP/1.1
+
+###############################################
+
+// Test: Get all booking by id
+GET {{url}}/bookings/booking/69665610444f223406bedd40

@@ -1,0 +1,32 @@
+@server = http://localhost
+@port = 3000
+@api_path = api
+@api_version = 3
+@url = {{server}}:{{port}}/{{api_path}}/v{{api_version}}
+
+
+###############################################
+
+// Test: Get all employees
+GET {{url}}/employees
+
+###############################################
+
+// Test: Get single employee
+GET {{url}}/employees/6957dce91938639a870da719
+
+###############################################
+
+// Test: Get employee treatments
+GET {{url}}/employees/treatments/6957dce91938639a870da719
+
+###############################################
+
+// Test: add treatment to employee
+POST {{url}}/employees/addTreatment  HTTP/1.1
+content-type: application/json
+
+{
+   "treatmentId": "6957dee21938639a870da725",
+   "employeeId": "6957e0601938639a870da738"
+}
